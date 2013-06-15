@@ -1,4 +1,9 @@
 InAppSettingsKitSampleApp/build/**
+InAppSettingsKit.xcodeproj/xcuserdata/
+InAppSettingsKitSampleApp/IASKSampleAppStaticLibrary.xcodeproj/project.xcworkspace/**
+InAppSettingsKitSampleApp/IASKSampleAppStaticLibrary.xcodeproj/xcuserdata/
+InAppSettingsKitSampleApp/InAppSettingsKitSampleApp.xcodeproj/project.xcworkspace/
+InAppSettingsKitSampleApp/InAppSettingsKitSampleApp.xcodeproj/xcuserdata/
 *.xcodeproj/*.pbxuser
 *.xcodeproj/*.perspectivev3
 *.xcodeproj/*.mode1v3
