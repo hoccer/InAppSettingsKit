@@ -642,12 +642,16 @@ CGRect IASKCGRectSwap(CGRect rect);
             // create a new dictionary with the new view controller
             NSMutableDictionary *newItemDict = [NSMutableDictionary dictionaryWithCapacity:3];
             [newItemDict addEntriesFromDictionary: [self.viewList objectAtIndex:kIASKSpecifierValuesViewControllerIndex]];	// copy the title and explain strings
-            
-            targetViewController = [[IASKSpecifierValuesViewController alloc] initWithTableClass: [self.tableView class]];
+            if ([self.delegate respondsToSelector: @selector(specifierValuesViewControllerForSettingsViewController:)]) {
+                targetViewController = [self.delegate specifierValuesViewControllerForSettingsViewController: self];
+            } else {
+                targetViewController = [[IASKSpecifierValuesViewController alloc] initWithTableClass: [self.tableView class]];
+            }
             // add the new view controller to the dictionary and then to the 'viewList' array
             [newItemDict setObject:targetViewController forKey:@"viewController"];
             [self.viewList replaceObjectAtIndex:kIASKSpecifierValuesViewControllerIndex withObject:newItemDict];
-            [targetViewController release];
+            // XXX This release causes a zombie crash. Even without it I don't see any memory leaks. [DS]
+            //[targetViewController release];
             
             // load the view controll back in to push it
             targetViewController = [[self.viewList objectAtIndex:kIASKSpecifierValuesViewControllerIndex] objectForKey:@"viewController"];
