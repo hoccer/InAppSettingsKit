@@ -643,7 +643,7 @@ CGRect IASKCGRectSwap(CGRect rect);
             NSMutableDictionary *newItemDict = [NSMutableDictionary dictionaryWithCapacity:3];
             [newItemDict addEntriesFromDictionary: [self.viewList objectAtIndex:kIASKSpecifierValuesViewControllerIndex]];	// copy the title and explain strings
             
-            targetViewController = [[IASKSpecifierValuesViewController alloc] init];
+            targetViewController = [[IASKSpecifierValuesViewController alloc] initWithTableClass: [self.tableView class]];
             // add the new view controller to the dictionary and then to the 'viewList' array
             [newItemDict setObject:targetViewController forKey:@"viewController"];
             [self.viewList replaceObjectAtIndex:kIASKSpecifierValuesViewControllerIndex withObject:newItemDict];

@@ -33,6 +33,14 @@
 @synthesize settingsReader = _settingsReader;
 @synthesize settingsStore = _settingsStore;
 
+- (id) initWithTableClass: (Class) tableClass {
+    self = [super init];
+    if (self != nil) {
+        _tableClass = tableClass;
+    }
+    return self;
+}
+
 - (void) updateCheckedItem {
     NSInteger index;
 	
@@ -54,7 +62,7 @@
 
 - (void)loadView
 {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView = [[_tableClass alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth |
     UIViewAutoresizingFlexibleHeight;
     _tableView.delegate = self;

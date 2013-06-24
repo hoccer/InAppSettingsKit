@@ -27,10 +27,13 @@
     NSIndexPath             *_checkedItem;
 	IASKSettingsReader		*_settingsReader;
     id<IASKSettingsStore>	_settingsStore;
+    Class                   _tableClass;
 }
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSIndexPath *checkedItem;
 @property (nonatomic, retain) IASKSpecifier *currentSpecifier;
+
+- (id) initWithTableClass: (Class) tableClass;
 
 @end
