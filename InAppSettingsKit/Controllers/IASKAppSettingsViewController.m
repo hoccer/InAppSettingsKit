@@ -27,6 +27,8 @@
 #import "IASKSpecifierValuesViewController.h"
 #import "IASKTextField.h"
 
+#include <tgmath.h>
+
 #if !__has_feature(objc_arc)
 #error "IASK needs ARC"
 #endif
@@ -420,7 +422,7 @@ CGRect IASKCGRectSwap(CGRect rect);
 								 attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:[UIFont labelFontSize]]}
 									context:nil].size;
 		);
-		return roundf(size.height+kIASKVerticalPaddingGroupTitles);
+		return round(size.height+kIASKVerticalPaddingGroupTitles);
 	}
 	return 0;
 }
