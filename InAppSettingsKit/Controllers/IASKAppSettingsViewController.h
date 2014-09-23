@@ -23,7 +23,6 @@
 
 @class IASKSettingsReader;
 @class IASKAppSettingsViewController;
-@class IASKSpecifierValuesViewController;
 
 @protocol IASKSettingsDelegate
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender;
@@ -57,9 +56,6 @@
 - (void)settingsViewController:(IASKAppSettingsViewController*)sender buttonTappedForKey:(NSString*)key __attribute__((deprecated)); // use the method below with specifier instead
 - (void)settingsViewController:(IASKAppSettingsViewController*)sender buttonTappedForSpecifier:(IASKSpecifier*)specifier;
 - (void)settingsViewController:(IASKAppSettingsViewController*)sender tableView:(UITableView *)tableView didSelectCustomViewSpecifier:(IASKSpecifier*)specifier;
-
-#pragma mark - multi value detail view customization
-- (IASKSpecifierValuesViewController*) specifierValuesViewControllerForSettingsViewController:(IASKAppSettingsViewController*)sender;
 @end
 
 
